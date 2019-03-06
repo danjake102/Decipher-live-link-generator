@@ -1,7 +1,3 @@
-$(document).ready(function(){
-    $('.tooltipped').tooltip();
-  });
-
 function platformType(){
 	if(document.getElementById('surveyID').value == ""){
 		alert("input survey ID")
