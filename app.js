@@ -1,35 +1,39 @@
 function generateLink() {
 	var id = document.getElementById("surveyID").value;
+	var list = 0
+	var stsLink = "http://survey-d.researchnow.com/survey/selfserve/53b/"+id+"?list=" 
+	var stsLink2 = "&rnid=$rnid&study=$study&c=$c&src=$src"
+	var dkLink = "http://survey-d.researchnow.com/survey/selfserve/53b/"+id+"?list="
+	var dkLink2 = "&pid=$pid&psid=$psid"
 	
-	var stsLink = "http://survey-d.researchnow.com/survey/selfserve/53b/"+id+"?list="+list+"&rnid=$rnid&study=$study&c=$c&src=$src"
-	var dkLink = "http://survey-d.researchnow.com/survey/selfserve/53b/"+id+"?list="+list+"&pid=$pid&psid=$psid"
 	if(document.getElementById("sts").checked == true){
-		var list = 1
+		list = 1
 		if(document.getElementById("yes").checked == true){
 			document.getElementById("stsLink").innerHTML = ""
-			document.getElementById("stsLinkDigital1").innerHTML = "Exposed: "+ stsLink+"&hType=1"
-			document.getElementById("stsLinkDigital2").innerHTML = "Control: "+ stsLink+"&hType=2"
+			document.getElementById("stsLinkDigital1").innerHTML = "Exposed: "+ stsLink + list + stsLink2 + "&hType=1"
+			document.getElementById("stsLinkDigital2").innerHTML = "Control: "+ stsLink + list + stsLink2 + "&hType=2"
 		}
 		else{
 			document.getElementById("stsLinkDigital1").innerHTML = ""
 			document.getElementById("stsLinkDigital2").innerHTML = ""
-			document.getElementById("stsLink").innerHTML = "Live link: " +stsLink
+			document.getElementById("stsLink").innerHTML = "Live link: " + stsLink + list + stsLink2
+		}
+	}
+	
+	else{
+		list = 2
+		if(document.getElementById("yes").checked == true){
+			document.getElementById("stsLink").innerHTML = ""
+			document.getElementById("stsLinkDigital1").innerHTML = "Exposed: "+ dkLink + list + dkLink2 + "&hType=1"
+			document.getElementById("stsLinkDigital2").innerHTML = "Control: "+ dkLink + list + dkLink2 + "&hType=2"
+		}
+		else{
+			document.getElementById("stsLinkDigital1").innerHTML = ""
+			document.getElementById("stsLinkDigital2").innerHTML = ""
+			document.getElementById("stsLink").innerHTML = "Live link: " + dkLink + list + dkLink2
 		}
 	}
 
-	else{
-		var list = 2
-		if(document.getElementById("yes").checked == true){
-			document.getElementById("stsLink").innerHTML = ""
-			document.getElementById("stsLinkDigital1").innerHTML = "Exposed: "+ dkLink+"&hType=1"
-			document.getElementById("stsLinkDigital2").innerHTML = "Control: "+ dkLink+"&hType=2"
-		}
-		else{
-			document.getElementById("stsLinkDigital1").innerHTML = ""
-			document.getElementById("stsLinkDigital2").innerHTML = ""
-			document.getElementById("stsLink").innerHTML = "Live link: " +dkLink
-		}
-	}
 
 	
 	
