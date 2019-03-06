@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Decipher Test Link Generator</title>
+	<script type="text/javascript" src="app.js" ></script>
+</head>
+<body>
+	<p>Survey number: <span><input type="text" id="surveyID"></span></p>
+
+	<p>Platform:
+		  <input type="radio" id="dk" name="usedPlatform">DK/Nexus</option>
+		  <input type="radio" id="sts" name="usedPlatform">STS</option>
+	</p>
+
+	<p>Digital? 
+		<input type="radio" name="digital" id="yes">Yes
+		<input type="radio" name="digital" id="yo">No
+	</p>
+
+	<button onclick="generateLink()">Generate link</button>
+
+	<div>
+		<p id="stsLink"></p>
+		<p id="stsLinkDigital1"></p>
+		<p id="stsLinkDigital2"></p>
+	</div>
+</body>
+</html>
