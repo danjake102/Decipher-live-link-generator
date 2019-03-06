@@ -2,27 +2,56 @@
 <html>
 <head>
 	<title>Decipher Test Link Generator</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css" />
+	<link rel="stylesheet" type="text/css" href="tooltip.css" />
 	<script type="text/javascript" src="app.js" ></script>
 </head>
 <body>
-	<p>Survey number: <span><input type="text" id="surveyID"></span></p>
+	<div class="container" style="width: 35%; margin-top: 100px">
+		<div class="row">
+            <div class="input-field col s12" >
+            	<label for="surveyID">Survey ID</label>
+					
+						<input type="text" id="surveyID" style="width: 90%">
+						
+						<div class="tooltip">
+							<i class="material-icons">help</i>
+							<span class="tooltiptext">https://surveyd.researchnow.com/.../#/projects/..../selfserve/53b/<mark>190169</mark></span>
+						</div>
+				<p>Platform:
+					<label>
+						<input class="with-gap" type="radio" id="dk" name="usedPlatform"><span>DK/Nexus</span>
+					  
+					</label>
 
-	<p>Platform:
-		  <input type="radio" id="dk" name="usedPlatform">DK/Nexus</option>
-		  <input type="radio" id="sts" name="usedPlatform">STS</option>
-	</p>
+					<label>
+						<input class="with-gap" type="radio" id="sts" name="usedPlatform" checked><span>STS</span>
+					</label>
+				</p>
 
-	<p>Digital? 
-		<input type="radio" name="digital" id="yes">Yes
-		<input type="radio" name="digital" id="yo">No
-	</p>
+				<p>Digital?
+					<label>
+						<input class="with-gap" type="radio" name="digital" id="yes" checked><span>Yes</span>
+					</label>
+					<label>
+						<input class="with-gap" type="radio" name="digital" id="yo"><span>No</span>
+					</label>
+				</p>
 
-	<button onclick="platformType()">Generate link</button>
+				<a class="waves-effect waves-light btn-small" onclick="platformType()">Generate link</a>
 
-	<div>
-		<p id="liveLink"></p>
-		<p id="liveLinkDigital1"></p>
-		<p id="liveLinkDigital2"></p>
+				<div>
+					<p id="liveLink"></p>
+					<p id="liveLinkDigital1"></p>
+					<p id="liveLinkDigital2"></p>
+					<p id="copy"></p>
+					<textarea id="copyUrls" style="opacity: 0;"></textarea>
+				</div>
+			 </div>
+		 </div>
 	</div>
+	<script type="text/javascript" src="js/materialize.min.js"></script>  
+	
 </body>
 </html>
