@@ -12,7 +12,6 @@ function platformType(){
 				var type = {
 					"type": "dk"
 				}
-				
 			}
 	}
 	
@@ -46,7 +45,7 @@ function setURL(livelink){
 	var quota = document.getElementById('quotaLink')
 	var copy = document.getElementById('copyUrls')
 	var strLink = "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
-	quota.innerHTML = "Quota link: " + strLink.link("https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none")
+	quota.innerHTML = "Portal link: " + strLink.link("https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none")
 
 
 	if(document.getElementById("yes").checked == true){
