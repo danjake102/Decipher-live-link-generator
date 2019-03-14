@@ -38,12 +38,14 @@ function getURL(type) {
 
 
 function setURL(livelink){
-
+	var id = document.getElementById("surveyID").value;
 	var exposed = document.getElementById('liveLinkDigital1')
 	var control = document.getElementById('liveLinkDigital2')
 	var liveLinkElement = document.getElementById('liveLink')
 	var copyToClipboard = document.getElementById('copy')
+	var quota = document.getElementById('quotaLink')
 	var testing = document.getElementById('copyUrls')
+	var strLink = "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
 
 	if(document.getElementById("yes").checked == true){
 		var exposedLink = livelink + "&hType=1"
@@ -62,6 +64,7 @@ function setURL(livelink){
 		
 		clearValues()
 	}
+	quota.innerHTML = "Quota link: " + strLink.link("https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none")
 }
 
 function clearValues(){
