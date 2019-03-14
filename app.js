@@ -44,27 +44,29 @@ function setURL(livelink){
 	var liveLinkElement = document.getElementById('liveLink')
 	var copyToClipboard = document.getElementById('copy')
 	var quota = document.getElementById('quotaLink')
-	var testing = document.getElementById('copyUrls')
+	var copy = document.getElementById('copyUrls')
 	var strLink = "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
+	quota.innerHTML = "Quota link: " + strLink.link("https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none")
+
 
 	if(document.getElementById("yes").checked == true){
 		var exposedLink = livelink + "&hType=1"
 		var controlLink = livelink + "&hType=2"
 		exposed.innerHTML = "Exposed: " + exposedLink.link(livelink + "&hType=1")
 		control.innerHTML = "Control: " + controlLink.link(livelink + "&hType=2")
-		testing.value = "Exposed: " + livelink + "&hType=1" + '\n \n' + "Control: " + livelink + "&hType=2"
+		copy.value = "Exposed: " + livelink + "&hType=1" + '\n \n' + "Control: " + livelink + "&hType=2" + '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
 		clearValues()
 	}
 	else{
 		var live = livelink
 		liveLinkElement.innerHTML = "Live link: " + live.link(livelink)
-		testing.value = livelink
+		copy.value = "Link: " + livelink + '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
 		
 		clearValues()
 	}
-	quota.innerHTML = "Quota link: " + strLink.link("https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none")
+	
 }
 
 function clearValues(){
