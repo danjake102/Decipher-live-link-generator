@@ -63,7 +63,7 @@ function setURL(livelink){
 	}
 	else{
 		var live = livelink
-		liveLinkElement.innerHTML = "Live link: " + live.link(livelink)
+		liveLinkElement.innerHTML = "Default Live link: " + live.link(livelink)
 		setUrlMultiLang(id, exposed, control, livelink)
 		copy.value = "Link: " + livelink + '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
