@@ -59,8 +59,14 @@ function setURL(livelink){
 		exposed.innerHTML = "Default Exposed: " + exposedLink.link(livelink + "&hType=1")
 		control.innerHTML = "Default Control: " + controlLink.link(livelink + "&hType=2")
 		setUrlMultiLang(id, exposed, control, livelink)
-		copy.value = "Exposed: " + livelink + "&hType=1" + '\n \n' + "Control: " + livelink + "&hType=2" + '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
+		var multiLangLinks = []
+		var i = 0
+		var x = $("div#multiLang:first").find("p").toArray();
 		
+		for(i = 0; i< x.length; i++){
+			multiLangLinks.push($(x[i]).contents().text())
+		}
+		copy.value = "Exposed: " + livelink + "&hType=1" + '\n \n' + "Control: " + livelink + "&hType=2" + '\n \n' + "Multi languages links: " + "\n" +multiLangLinks.join("\n")+ "\n\n"+ "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
 		clearValues()
 	}
@@ -68,7 +74,13 @@ function setURL(livelink){
 		var live = livelink
 		liveLinkElement.innerHTML = "Default Live link: " + live.link(livelink)
 		setUrlMultiLang(id, exposed, control, livelink)
-		copy.value = "Link: " + livelink + '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
+		var multiLangLinks = []
+		var i = 0
+		var x = $("div#multiLang:first").find("p").toArray();
+		for(i = 0; i< x.length; i++){
+			multiLangLinks.push($(x[i]).contents().text())
+		}
+		copy.value = "Link: " + livelink + '\n \n' + "Multi languages links: " + "\n" +multiLangLinks.join("\n")+ '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
 		clearValues()
 	}
@@ -121,10 +133,6 @@ function setUrlMultiLang(id, exposed, control, livelink){
 	    }
 	    
 	    str = selected;
-
-
-	    
-	    
 	    	
 	    	if(document.getElementById("yes").checked == true){
 	    		for (ctr = 0; ctr < selectedLang.length; ctr++){
@@ -154,6 +162,7 @@ function setUrlMultiLang(id, exposed, control, livelink){
 		    	document.getElementById("multiLang").appendChild(para); 
 		    	}
 	    	}
-	     //end for forloop
+	     
 	}
+	
 }
