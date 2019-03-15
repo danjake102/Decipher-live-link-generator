@@ -113,7 +113,7 @@ function copyLinks(){
 
 function multiLang(){
 	 var x = document.getElementById("languages");
-	if (x.style.display === "none") {
+	if (document.getElementById("multi").checked == true) {
 	    x.style.display = "block";
 	  } else {
 	    x.style.display = "none";
