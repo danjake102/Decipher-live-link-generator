@@ -1,4 +1,6 @@
 function platformType(){
+
+	
 	if(document.getElementById('surveyID').value == ""){
 		alert("input survey ID")
 	}
@@ -53,16 +55,18 @@ function setURL(livelink){
 		var controlLink = livelink + "&hType=2"
 		exposed.innerHTML = "Exposed: " + exposedLink.link(livelink + "&hType=1")
 		control.innerHTML = "Control: " + controlLink.link(livelink + "&hType=2")
+		setUrlMultiLang(id, exposed, control, livelink)
 		copy.value = "Exposed: " + livelink + "&hType=1" + '\n \n' + "Control: " + livelink + "&hType=2" + '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
+		
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
 		clearValues()
 	}
 	else{
 		var live = livelink
 		liveLinkElement.innerHTML = "Live link: " + live.link(livelink)
+		setUrlMultiLang(id, exposed, control, livelink)
 		copy.value = "Link: " + livelink + '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
-		
 		clearValues()
 	}
 	
@@ -90,4 +94,39 @@ function copyLinks(){
 	copyText.select();
 
 	document.execCommand("copy");
+}
+
+function multiLang(){
+	 var x = document.getElementById("languages");
+	if (x.style.display === "none") {
+	    x.style.display = "block";
+	  } else {
+	    x.style.display = "none";
+	  }
+}
+
+function setUrlMultiLang(id, exposed, control, livelink){
+	if(document.getElementById("multi").checked == true){
+		var obj = myOption,
+        options = obj.options, 
+        selected = [], i, str;
+        selectedLang = [], i, str;
+    
+	    for (i = 0; i < options.length; i++) {
+	    	options[i].selected && selectedLang.push(obj[i].text);
+	        options[i].selected && selected.push(obj[i].value);
+	    }
+	    
+	    str = selected;
+
+	    
+	    for (ctr = 0; ctr < selectedLang.length; ctr++){
+	    	var para = document.createElement("p");
+	    	var link = document.createTextNode(selectedLang[ctr]+": "+livelink+"&decLang=&"+str[ctr]);
+
+	    	para.appendChild(link);
+
+	    	document.getElementById("multiLang").appendChild(para); 
+	    }
+	}
 }
