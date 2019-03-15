@@ -1,6 +1,10 @@
 function platformType(){
 
-	
+	var parent = document.getElementById("multiLang")
+	while(parent.firstChild){
+		parent.firstChild.remove()
+	}
+
 	if(document.getElementById('surveyID').value == ""){
 		alert("input survey ID")
 	}
@@ -119,14 +123,32 @@ function setUrlMultiLang(id, exposed, control, livelink){
 	    
 	    str = selected;
 
+
 	    
 	    for (ctr = 0; ctr < selectedLang.length; ctr++){
-	    	var para = document.createElement("p");
-	    	var link = document.createTextNode(selectedLang[ctr]+": "+livelink+"&decLang=&"+str[ctr]);
+	    	
+	    	if(document.getElementById("yes").checked == true){
+	    		var exposed = document.createElement("p")
+	    		var control = document.createElement("p")
+	    		var exposedLink = document.createTextNode(selectedLang[ctr]+" Exposed: "+livelink+"&hType=1"+"&decLang=&"+str[ctr])
+	    		var controlLink = document.createTextNode(selectedLang[ctr]+" Control: "+livelink+"&hType=2"+"&decLang=&"+str[ctr])
+	    		exposed.appendChild(exposedLink)
+	    		control.appendChild(controlLink)
 
-	    	para.appendChild(link);
+	    		document.getElementById("multiLang").appendChild(exposed);
+	    		document.getElementById("multiLang").appendChild(control);
+	    	}
+	    	else{
+	    		var para = document.createElement("p");
+		    	var link = document.createTextNode(selectedLang[ctr]+": "+livelink+"&decLang=&"+str[ctr]);
 
-	    	document.getElementById("multiLang").appendChild(para); 
+		    	para.appendChild(link);
+		    	document.getElementById("multiLang").appendChild(para); 
+		    	
+	    	}
+	    	
+	    	
+	    	
 	    }
 	}
 }
