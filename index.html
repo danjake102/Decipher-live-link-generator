@@ -3,9 +3,17 @@
 <head>
 	<title>Decipher Test Link Generator</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/materialize.min.css" />
 	<link rel="stylesheet" type="text/css" href="tooltip.css" />
+	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript" src="app.js" ></script>
+	<script >
+		$(document).ready(function(){
+		    $('select').formSelect();
+		 });
+	</script>
+	
 </head>
 <body>
 	<div class="container" style="width: 35%;">
@@ -13,7 +21,7 @@
                     <h3 class="center-align">FOR SURVEY-D ONLY</h3>
             </div>
 		<div class="row">
-            <div class="input-field col s12" >
+            <div class="input-field cool s12" >
             	<label for="surveyID">Survey ID</label>
 					
 						<input type="text" id="surveyID" style="width: 90%">
@@ -42,6 +50,131 @@
 					</label>
 				</p>
 
+				<p>Multi Language?
+					<label>
+						<input class="with-gap" type="radio" name="decLang" id="multi" onclick="multiLang()"><span>Yes</span>
+					</label>
+
+					<label>
+						<input class="with-gap" type="radio" name="decLang" id="notMulti" onclick="multiLang()"><span>No</span>
+					</label>
+					
+					<div id="languages" style="display: none;">
+						<select multiple id="myOption">
+							<option value="afrikaans">Afrikaans</option>
+							<option value="albanian">Albanian</option>
+							<option value="arabic">Arabic</option>
+							<option value="arabic_egypt">Arabic (Egypt)</option>
+							<option value="arabic_lebanon">Arabic (Lebanon)</option>
+							<option value="arabic_morocco">Arabic (Morocco)</option>
+							<option value="arabic_qatar">Arabic (Qatar)</option>
+							<option value="arabic_saudiarabia">Arabic (Saudi Arabia)</option>
+							<option value="arabic_uae">Arabic (UAE)</option>
+							<option value="assamese">Assamese</option>
+							<option value="azerbaijani">Azerbaijani</option>
+							<option value="bengali">Bengali</option>
+							<option value="bulgarian">Bulgarian</option>
+							<option value="burmese">Burmese (Myanmar)</option>
+							<option value="chinese">Chinese</option>
+							<option value="simplifiedchinese">Chinese Simplified</option>
+							<option value="traditionalchinese">Chinese Traditional</option>
+							<option value="croatian">Croatian</option>
+							<option value="czech">Czech</option>
+							<option value="danish">Danish</option>
+							<option value="dutch">Dutch</option>
+							<option value="dutch_belgium">Dutch (Belgium)</option>
+							<option value="english">English</option>
+							<option value="aus">English (Australia)</option>
+							<option value="english_ca">English (Canada)</option>
+							<option value="english_china">English (China)</option>
+							<option value="english_g1">English (Generic 1)</option>
+							<option value="english_g2">English (Generic 2)</option>
+							<option value="english_g3">English (Generic 3)</option>
+							<option value="english_g4">English (Generic 4)</option>
+							<option value="english_hk">English (Hong Kong)</option>
+							<option value="english_india">English (India)</option>
+							<option value="english_id">English (Indonesia)</option>
+							<option value="english_ireland">English (Ireland)</option>
+							<option value="english_my">English (Malaysia)</option>
+							<option value="english_nigeria">English (Nigeria)</option>
+							<option value="english_sg">English (Singapore)</option>
+							<option value="english_za">English (South Africa)</option>
+							<option value="english_tw">English (Taiwan)</option>
+							<option value="uk">English (UK)</option>
+							<option value="estonian">Estonian</option>
+							<option value="finnish">Finnish</option>
+							<option value="french">French</option>
+							<option value="french_belgium">French (Belgium)</option>
+							<option value="canadian">French (Canada)</option>
+							<option value="french_lu">French (Luxemborg)</option>
+							<option value="french_ch">French (Switzerland)</option>
+							<option value="georgian">Georgian</option>
+							<option value="german">German</option>
+							<option value="german_austria">German (Austria)</option>
+							<option value="german_lu">German (Luxemborg)</option>
+							<option value="german_ch">German (Switzerland)</option>
+							<option value="greek">Greek</option>
+							<option value="hebrew">Hebrew</option>
+							<option value="hindi">Hindi</option>
+							<option value="hungarian">Hungarian</option>
+							<option value="icelandic">Icelandic</option>
+							<option value="indonesian">Indonesian</option>
+							<option value="italian">Italian</option>
+							<option value="japanese">Japanese</option>
+							<option value="kannada">Kannada</option>
+							<option value="khmer">Khmer</option>
+							<option value="korean">Korean</option>
+							<option value="latvian">Latvian</option>
+							<option value="lithuanian">Lithuanian</option>
+							<option value="macedonian">Macedonian</option>
+							<option value="malay">Malay</option>
+							<option value="malay_sg">Malay (Singapore)</option>
+							<option value="marathi">Marathi</option>
+							<option value="mongolian">Mongolian</option>
+							<option value="norwegian">Norwegian</option>
+							<option value="persian">Persian</option>
+							<option value="polish">Polish</option>
+							<option value="portuguese">Portuguese</option>
+							<option value="portuguese_br">Portuguese (Brazil)</option>
+							<option value="punjabi">Punjabi</option>
+							<option value="romanian">Romanian</option>
+							<option value="russian">Russian</option>
+							<option value="samoan">Samoan</option>
+							<option value="serbian">Serbian</option>
+							<option value="simplifiedchinese_my">Simplified Chinese (Malaysia)</option>
+							<option value="simplifiedchinese_sg">Simplified Chinese (Singapore)</option>
+							<option value="slovak">Slovak</option>
+							<option value="slovene">Slovene</option>
+							<option value="slovenian">Slovenian</option>
+							<option value="spanish">Spanish</option>
+							<option value="spanish_argentina">Spanish (Argentina)</option>
+							<option value="spanish_brazil">Spanish (Brazil)</option>
+							<option value="spanish_chile">Spanish (Chile)</option>
+							<option value="spanish_optionombia">Spanish (optionombia)</option>
+							<option value="spanish_eu">Spanish (EU)</option>
+							<option value="spanish_ecuador">Spanish (Ecuador)</option>
+							<option value="spanish_latin">Spanish (Latin America)</option>
+							<option value="spanish_mexico">Spanish (Mexico)</option>
+							<option value="spanish_peru">Spanish (Peru)</option>
+							<option value="spanish_south">Spanish (South America)</option>
+							<option value="spanish_venezuela">Spanish (Venezuela)</option>
+							<option value="swahili">Swahili</option>
+							<option value="swedish">Swedish</option>
+							<option value="tagalog">Tagalog</option>
+							<option value="tamil">Tamil</option>
+							<option value="telugu">Telugu</option>
+							<option value="thai">Thai</option>
+							<option value="tongan">Tongan</option>
+							<option value="traditionalchinese_tw">Traditional Chinese (Taiwan)</option>
+							<option value="turkish">Turkish</option>
+							<option value="ukrainian">Ukrainian</option>
+							<option value="urdu">Urdu (Islamic Republic of Pakistan)</option>
+							<option value="vietnamese">Vietnamese</option>
+						</select>
+					</div>
+					
+				</p>
+				
 				<a class="waves-effect waves-light btn-small" onclick="platformType()">Generate link</a>
 
 				<div>
@@ -49,13 +182,15 @@
 					<p id="liveLinkDigital1"></p>
 					<p id="liveLinkDigital2"></p>
 					<p id="quotaLink"></p>
+					<div id="multiLang">
+
+					</div>
 					<p id="copy"></p>
 					<textarea id="copyUrls" style="opacity: 0;" readonly></textarea>
 				</div>
+				
 			 </div>
 		 </div>
 	</div>
-	<script type="text/javascript" src="js/materialize.min.js"></script>  
-	
 </body>
 </html>
