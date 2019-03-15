@@ -30,8 +30,7 @@ function platformType(){
 
 function getURL(type) {
 	var id = document.getElementById("surveyID").value;
-	var url = "http://survey-d.researchnow.com/survey/selfserve/53b/"+id+"?"
-
+	var url = "https://survey-d.researchnow.com/survey/selfserve/53b/"+id+"?"
 	var platformType = {
 		"sts": url + "list=1&rnid=$rnid&study=$study&c=$c&src=$src",
 		"dk": url + "list=2&pid=$pid&psid=$psid"
@@ -57,8 +56,8 @@ function setURL(livelink){
 	if(document.getElementById("yes").checked == true){
 		var exposedLink = livelink + "&hType=1"
 		var controlLink = livelink + "&hType=2"
-		exposed.innerHTML = "Exposed: " + exposedLink.link(livelink + "&hType=1")
-		control.innerHTML = "Control: " + controlLink.link(livelink + "&hType=2")
+		exposed.innerHTML = "Default Exposed: " + exposedLink.link(livelink + "&hType=1")
+		control.innerHTML = "Default Control: " + controlLink.link(livelink + "&hType=2")
 		setUrlMultiLang(id, exposed, control, livelink)
 		copy.value = "Exposed: " + livelink + "&hType=1" + '\n \n' + "Control: " + livelink + "&hType=2" + '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
 		
@@ -125,30 +124,36 @@ function setUrlMultiLang(id, exposed, control, livelink){
 
 
 	    
-	    for (ctr = 0; ctr < selectedLang.length; ctr++){
+	    
 	    	
 	    	if(document.getElementById("yes").checked == true){
-	    		var exposed = document.createElement("p")
-	    		var control = document.createElement("p")
-	    		var exposedLink = document.createTextNode(selectedLang[ctr]+" Exposed: "+livelink+"&hType=1"+"&decLang=&"+str[ctr])
-	    		var controlLink = document.createTextNode(selectedLang[ctr]+" Control: "+livelink+"&hType=2"+"&decLang=&"+str[ctr])
-	    		exposed.appendChild(exposedLink)
-	    		control.appendChild(controlLink)
+	    		for (ctr = 0; ctr < selectedLang.length; ctr++){
+	    			var para = document.createElement("p");
+	    			para.innerHTML = selectedLang[ctr]+ '&nbsp; Exposed: <a href="'+livelink+"&hType=1&decLang=&"+str[ctr]+'">'+livelink+"&hType=1&decLang=&"+str[ctr]+'</a>'
+	    			document.getElementById("multiLang").appendChild(para);
+	    		}
+	    		for (ctr = 0; ctr < selectedLang.length; ctr++){
+	    			var para = document.createElement("p");
+	    		//var exposedLink = document.createTextNode(selectedLang[ctr]+" Exposed: "+livelink+"&hType=1"+"&decLang=&"+str[ctr])
+	    			para.innerHTML = selectedLang[ctr]+ '&nbsp; Control: <a href="'+livelink+"&hType=2&rnid=$rnid&study=$study&c=$c&src=$src"+"&decLang=&"+str[ctr]+'">'+livelink+"&hType=2&decLang=&"+str[ctr]+'</a>'
+	    			document.getElementById("multiLang").appendChild(para);
+	    		}
+	    		//var controlLink = document.createTextNode(selectedLang[ctr]+" Control: "+livelink+"&hType=2"+"&decLang=&"+str[ctr])
+	    		//exposed.appendChild(exposedLink)
+	    		//control.appendChild(controlLink)
 
-	    		document.getElementById("multiLang").appendChild(exposed);
-	    		document.getElementById("multiLang").appendChild(control);
+	    		
 	    	}
 	    	else{
+	    		for (ctr = 0; ctr < selectedLang.length; ctr++){
 	    		var para = document.createElement("p");
-		    	var link = document.createTextNode(selectedLang[ctr]+": "+livelink+"&decLang=&"+str[ctr]);
+	    		para.innerHTML = selectedLang[ctr]+": " + '<a href="'+livelink+"&decLang=&"+str[ctr]+'">'+livelink+"&decLang=&"+str[ctr]+'</a>'
+		    	//var link = document.createTextNode(selectedLang[ctr]+": "+livelink+"&decLang=&"+str[ctr]);
 
-		    	para.appendChild(link);
+		    	//para.appendChild(link);
 		    	document.getElementById("multiLang").appendChild(para); 
-		    	
+		    	}
 	    	}
-	    	
-	    	
-	    	
-	    }
+	     //end for forloop
 	}
 }
