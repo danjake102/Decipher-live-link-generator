@@ -137,13 +137,13 @@ function setUrlMultiLang(id, exposed, control, livelink){
 	    	if(document.getElementById("yes").checked == true){
 	    		for (ctr = 0; ctr < selectedLang.length; ctr++){
 	    			var para = document.createElement("p");
-	    			para.innerHTML = selectedLang[ctr]+ '&nbsp; Exposed: <a href="'+livelink+"&hType=1&decLang=&"+str[ctr]+'">'+livelink+"&hType=1&decLang=&"+str[ctr]+'</a>'
+	    			para.innerHTML = selectedLang[ctr]+ '&nbsp; Exposed: <a href="'+livelink+"&hType=1&decLang="+str[ctr]+'">'+livelink+"&hType=1&decLang="+str[ctr]+'</a>'
 	    			document.getElementById("multiLang").appendChild(para);
 	    		}
 	    		for (ctr = 0; ctr < selectedLang.length; ctr++){
 	    			var para = document.createElement("p");
 	    		//var exposedLink = document.createTextNode(selectedLang[ctr]+" Exposed: "+livelink+"&hType=1"+"&decLang=&"+str[ctr])
-	    			para.innerHTML = selectedLang[ctr]+ '&nbsp; Control: <a href="'+livelink+"&hType=2&rnid=$rnid&study=$study&c=$c&src=$src"+"&decLang=&"+str[ctr]+'">'+livelink+"&hType=2&decLang=&"+str[ctr]+'</a>'
+	    			para.innerHTML = selectedLang[ctr]+ '&nbsp; Control: <a href="'+livelink+"&hType=2&rnid=$rnid&study=$study&c=$c&src=$src"+"&decLang="+str[ctr]+'">'+livelink+"&hType=2&decLang="+str[ctr]+'</a>'
 	    			document.getElementById("multiLang").appendChild(para);
 	    		}
 	    		//var controlLink = document.createTextNode(selectedLang[ctr]+" Control: "+livelink+"&hType=2"+"&decLang=&"+str[ctr])
@@ -155,7 +155,7 @@ function setUrlMultiLang(id, exposed, control, livelink){
 	    	else{
 	    		for (ctr = 0; ctr < selectedLang.length; ctr++){
 	    		var para = document.createElement("p");
-	    		para.innerHTML = selectedLang[ctr]+": " + '<a href="'+livelink+"&decLang=&"+str[ctr]+'">'+livelink+"&decLang=&"+str[ctr]+'</a>'
+	    		para.innerHTML = selectedLang[ctr]+": " + '<a href="'+livelink+"&decLang="+str[ctr]+'">'+livelink+"&decLang="+str[ctr]+'</a>'
 		    	//var link = document.createTextNode(selectedLang[ctr]+": "+livelink+"&decLang=&"+str[ctr]);
 
 		    	//para.appendChild(link);
