@@ -72,7 +72,7 @@ function setURL(livelink){
 	}
 	else{
 		var live = livelink
-		liveLinkElement.innerHTML = "Default Live link: " + live.link(livelink)
+		liveLinkElement.innerHTML = "Live link: " + live.link(livelink)
 		setUrlMultiLang(id, exposed, control, livelink)
 		var multiLangLinks = []
 		var i = 0
