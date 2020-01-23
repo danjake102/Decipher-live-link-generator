@@ -30,7 +30,7 @@ function platformType(){
 
 function getURL(type) {
 	var id = document.getElementById("surveyID").value;
-	var url = "https://survey-d.researchnow.com/survey/selfserve/53c/"+id+"?"
+	var url = "https://survey-d.dynata.com/survey/selfserve/53c/"+id+"?"
 	var platformType = {
 		"sts": url + "list=1&rnid=$rnid&study=$study&c=$c&src=$src",
 		"dk": url + "list=2&C=$C&pid=$pid&psid=$psid"
@@ -49,8 +49,8 @@ function setURL(livelink){
 	var copyToClipboard = document.getElementById('copy')
 	var quota = document.getElementById('quotaLink')
 	var copy = document.getElementById('copyUrls')
-	var strLink = "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
-	quota.innerHTML = "Portal link: " + strLink.link("https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none")
+	var strLink = "https://survey-d.dynata.com/rep/selfserve/53c/"+id+":dashboard?tab=quota&split=none"
+	quota.innerHTML = "Portal link: " + strLink.link("https://survey-d.dynata.com/rep/selfserve/53c/"+id+":dashboard?tab=quota&split=none")
 
 
 	if(document.getElementById("yes").checked == true){
@@ -66,7 +66,7 @@ function setURL(livelink){
 		for(i = 0; i< x.length; i++){
 			multiLangLinks.push($(x[i]).contents().text())
 		}
-		copy.value = "Exposed: " + livelink + "&hType=1" + '\n \n' + "Control: " + livelink + "&hType=2" + '\n \n' + "Multi languages links: " + "\n" +multiLangLinks.join("\n")+ "\n\n"+ "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
+		copy.value = "Exposed: " + livelink + "&hType=1" + '\n \n' + "Control: " + livelink + "&hType=2" + '\n \n' + "Multi languages links: " + "\n" +multiLangLinks.join("\n")+ "\n\n"+ "Quota Link: " + "https://survey-d.dynata.com/rep/selfserve/53c/"+id+":dashboard?tab=quota&split=none"
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
 		clearValues()
 	}
@@ -80,7 +80,7 @@ function setURL(livelink){
 		for(i = 0; i< x.length; i++){
 			multiLangLinks.push($(x[i]).contents().text())
 		}
-		copy.value = "Link: " + livelink + '\n \n' + "Multi languages links: " + "\n" +multiLangLinks.join("\n")+ '\n \n' + "Quota Link: " + "https://survey-d.researchnow.com/rep/selfserve/53b/"+id+":dashboard?tab=quota&split=none"
+		copy.value = "Link: " + livelink + '\n \n' + "Multi languages links: " + "\n" +multiLangLinks.join("\n")+ '\n \n' + "Quota Link: " + "https://survey-d.dynata.com/rep/selfserve/53c/"+id+":dashboard?tab=quota&split=none"
 		copyToClipboard.innerHTML = '<a class="waves-effect waves-light btn-small" onclick="copyLinks()">Copy to clipboard</a>'
 		clearValues()
 	}
