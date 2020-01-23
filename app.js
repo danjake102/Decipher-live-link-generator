@@ -30,10 +30,10 @@ function platformType(){
 
 function getURL(type) {
 	var id = document.getElementById("surveyID").value;
-	var url = "https://survey-d.researchnow.com/survey/selfserve/53b/"+id+"?"
+	var url = "https://survey-d.researchnow.com/survey/selfserve/53c/"+id+"?"
 	var platformType = {
 		"sts": url + "list=1&rnid=$rnid&study=$study&c=$c&src=$src",
-		"dk": url + "list=2&pid=$pid&psid=$psid"
+		"dk": url + "list=2&C=$C&pid=$pid&psid=$psid"
 	}
 
 	return platformType[type.type]
